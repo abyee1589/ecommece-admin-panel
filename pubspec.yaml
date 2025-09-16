@@ -46,6 +46,10 @@ dependencies:
   google_fonts: ^6.3.1
   firebase_core: ^4.1.0
   get: ^4.7.2
+  intl: ^0.20.2
+  connectivity_plus: ^7.0.0
+  url_launcher: ^6.3.2
+  iconsax: ^0.0.8
 
 dev_dependencies:
   flutter_test:
@@ -66,33 +70,33 @@ flutter:
   uses-material-design: true
   
   #---------LOCAL ASSETS------------
-  assets:
-    - assets/logos/
-    - assets/images/content/
-    - assets/images/animations/
-    - assets/icons/payment_methods/
+  # assets:
+  #   - assets/logos/
+  #   - assets/images/content/
+  #   - assets/images/animations/
+  #   - assets/icons/payment_methods/
   
   #---------LOCAL FONTS--------------
-  fonts:
-    - family: Urbanist
-      fonts:
-        - asset: assets/fonts/urbanist/Urbanist-Light.ttf
-          weight: 300
-        - asset: assets/fonts/urbanist/Urbanist-Regular.ttf
-          weight: 400
-        - asset: assets/fonts/urbanist/Urbanist-Italic.ttf
-          style: italic
-        - asset: assets/fonts/urbanist/Urbanist-Medium.ttf
-          weight: 500
-        - asset: assets/fonts/urbanist/Urbanist-MediumItalic.ttf
-          weight: 500
-          style: italic
-        - asset: assets/fonts/urbanist/Urbanist-SemiBold.ttf
-          weight: 600
-        - asset: assets/fonts/urbanist/Urbanist-Bold.ttf
-          weight: 800
-        - asset: assets/fonts/urbanist/Urbanist-ExtraBold.ttf
-          weight: 900
+  # fonts:
+  #   - family: Urbanist
+  #     fonts:
+  #       - asset: assets/fonts/urbanist/Urbanist-Light.ttf
+  #         weight: 300
+  #       - asset: assets/fonts/urbanist/Urbanist-Regular.ttf
+  #         weight: 400
+  #       - asset: assets/fonts/urbanist/Urbanist-Italic.ttf
+  #         style: italic
+  #       - asset: assets/fonts/urbanist/Urbanist-Medium.ttf
+  #         weight: 500
+  #       - asset: assets/fonts/urbanist/Urbanist-MediumItalic.ttf
+  #         weight: 500
+  #         style: italic
+  #       - asset: assets/fonts/urbanist/Urbanist-SemiBold.ttf
+  #         weight: 600
+  #       - asset: assets/fonts/urbanist/Urbanist-Bold.ttf
+  #         weight: 800
+  #       - asset: assets/fonts/urbanist/Urbanist-ExtraBold.ttf
+          # weight: 900
         # - asset: assets/fonts/urbanist/Urbanist-Black.ttf
         #   weight: 1000
       

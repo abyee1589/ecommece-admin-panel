@@ -1,0 +1,54 @@
+import 'package:ab_ecommerce_admin_panel/utils/constants/colors.dart';
+import 'package:ab_ecommerce_admin_panel/utils/constants/sizes.dart';
+import 'package:ab_ecommerce_admin_panel/utils/device/device_utility.dart';
+import 'package:ab_ecommerce_admin_panel/utils/helpers/helper_functions.dart';
+import 'package:flutter/material.dart';
+
+
+class AbSearchContainer extends StatelessWidget {
+  const AbSearchContainer({
+    super.key,
+    required this.text,
+    this.icon,
+    this.showBackground = true,
+    this.showBorder = true,
+    this.onTap,
+    this.padding = const EdgeInsets.symmetric(horizontal: AbSizes.defaultSpace),
+  });
+  final String text;
+  final IconData? icon;
+  final bool showBackground, showBorder;
+  final VoidCallback? onTap;
+  final EdgeInsetsGeometry padding;
+
+  @override
+  Widget build(BuildContext context) {
+    final dark = AbHelperFunctions.isDarkMode(context);
+    return GestureDetector(
+      onTap: onTap,
+      child: Padding(
+        padding: padding,
+        child: Container(
+          width: AbDeviceUtils.getScreenWidth(context),
+          padding: const EdgeInsets.all(AbSizes.md),
+          decoration: BoxDecoration(
+            color: showBackground
+                ? dark
+                      ? AbColors.white
+                      : AbColors.light
+                : Colors.transparent,
+            borderRadius: BorderRadius.circular(AbSizes.cardRadiusLg),
+            border: showBorder ? Border.all(color: AbColors.grey) : null,
+          ),
+          child: Row(
+            children: [
+              Icon(icon, color: AbColors.darkGrey),
+              const SizedBox(width: AbSizes.defaultSpace),
+              Text(text, style: Theme.of(context).textTheme.bodySmall),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
