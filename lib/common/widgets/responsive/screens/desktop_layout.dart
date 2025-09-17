@@ -1,4 +1,5 @@
 import 'package:ab_ecommerce_admin_panel/layouts/headers/header.dart';
+import 'package:ab_ecommerce_admin_panel/layouts/headers/sidebars/sidebar.dart';
 import 'package:flutter/material.dart';
 
 class DesktopLayout extends StatelessWidget {
@@ -10,7 +11,7 @@ class DesktopLayout extends StatelessWidget {
     return  Scaffold(
       body: Row(
         children: [
-          const Expanded(child: Drawer()),
+          const Expanded(child: AbSideBar()),
           Expanded(
             flex: 5,
             child: Column(

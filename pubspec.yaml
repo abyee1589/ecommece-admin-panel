@@ -50,6 +50,8 @@ dependencies:
   connectivity_plus: ^7.0.0
   url_launcher: ^6.3.2
   iconsax: ^0.0.8
+  cached_network_image: ^3.4.1
+  shimmer: ^3.0.0
 
 dev_dependencies:
   flutter_test:
@@ -70,11 +72,11 @@ flutter:
   uses-material-design: true
   
   #---------LOCAL ASSETS------------
-  # assets:
-  #   - assets/logos/
-  #   - assets/images/content/
-  #   - assets/images/animations/
-  #   - assets/icons/payment_methods/
+  assets:
+    - assets/logos/
+    # - assets/images/content/
+    - assets/images/user/
+    # - assets/icons/payment_methods/
   
   #---------LOCAL FONTS--------------
   # fonts:
