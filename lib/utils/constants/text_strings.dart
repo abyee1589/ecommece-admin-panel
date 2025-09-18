@@ -30,8 +30,8 @@ class AbTexts {
   static const String resendEmailIn = 'Resend Email In';
 
   // Authentication Heading texts
-  static const String loginTitle = 'Welcome Back,';
-  static const String loginSubTile = 'Discover litiless choices and onmatches convinience.';
+  static const String loginTitle = 'Welcome back!';
+  static const String loginSubTile = 'Discover limitless choices and onmatches convinience.';
   static const String signupTtle = 'Let\'s createe your account';
   static const String forgetPasswordTitle = 'Forgot Password';
   static const String forgetPasswordSubTitle =

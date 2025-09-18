@@ -34,9 +34,14 @@ class AbMenuItem extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.only(left: AbSizes.lg, top: AbSizes.md, bottom: AbSizes.md, right: AbSizes.md),
-                  child: Icon(icon, color: AbColors.white),
+                  child: menuController.isActive(route) 
+                  ? Icon(icon, size: 22, color: AbColors.white)
+                  : Icon(icon, size: 22, color: menuController.isHovering(route) ? AbColors.white : AbColors.darkerGrey),
                 ),
-                Text(itemName, style: Theme.of(context).textTheme.bodyMedium!.apply(color: AbColors.white),)
+                if(menuController.isActive(route) || menuController.isHovering(route))
+                  Flexible(child: Text(itemName, style: Theme.of(context).textTheme.bodyMedium!.apply(color: AbColors.white),))
+                else 
+                  Flexible(child: Text(itemName, style: Theme.of(context).textTheme.bodyMedium!.apply(color: AbColors.darkerGrey),))
               ],
             ),
           ),

@@ -4,7 +4,10 @@ import 'package:ab_ecommerce_admin_panel/utils/device/device_utility.dart';
 import 'package:get/get.dart';
 
 class SidebarController extends GetxController{
-  final RxString activeItem = AbRoutes.home.obs;
+  static SidebarController get instance => Get.find();
+
+  ///Variables
+  final RxString activeItem = AbRoutes.login.obs;
   final RxString hoverItem = ''.obs;
 
   void changeActiveItem(String route) => activeItem.value = route;
