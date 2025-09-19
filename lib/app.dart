@@ -22,10 +22,9 @@ class App extends StatelessWidget {
       theme: AbAppTheme.lightTheme,
       darkTheme: AbAppTheme.darkTheme,
       getPages: AppRoutes.pages,
-      initialRoute: AbRoutes.login,
+      initialRoute: AbRoutes.dashboard,
       home: AbResponsiveWidget(desktop: const DesktopLayout(), tablet: TabletLayout(), mobile: MobileLayout()),
       unknownRoute: GetPage(name: '/Page-not-found', page: (() => const Scaffold(body: Center(child: Text('Page Not Fond'))))),
-
     );
   }
 }
