@@ -2,13 +2,13 @@
 
 import 'package:ab_ecommerce_admin_panel/common/data/repositories/authentication/authentication_repository.dart';
 import 'package:ab_ecommerce_admin_panel/features/authentication/controllers/user_controller.dart';
-import 'package:ab_ecommerce_admin_panel/utils/constants/enums.dart';
 import 'package:ab_ecommerce_admin_panel/utils/constants/image_strings.dart';
 import 'package:ab_ecommerce_admin_panel/utils/loaders/full_screen_loader.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
+import '../../../utils/constants/enums.dart';
 import '../../../utils/helpers/network_manager.dart';
 import '../../../utils/loaders/loaders.dart';
 
@@ -19,6 +19,7 @@ class LoginController extends GetxController {
   final RxBool hidePassword = true.obs;
   final RxBool rememberMe = false.obs;
   final localStorage = GetStorage();
+  final userController = UserController.instance;
 
 
   final email = TextEditingController();
@@ -28,7 +29,7 @@ class LoginController extends GetxController {
   @override
   void onInit(){
     email.text = localStorage.read('REMEMBER_ME_EMAIL') ?? '';
-    email.text = localStorage.read('REMEMBER_ME_PASSWORD') ?? '';
+    password.text = localStorage.read('REMEMBER_ME_PASSWORD') ?? '';
     super.onInit();
   }
 
@@ -42,6 +43,12 @@ class LoginController extends GetxController {
       final isConnected = await NetworkManager.instance.isConnected();
       if(!isConnected){
         AbLoaders.warningSnackBar(title: 'No Internet Connection!');
+        AbFullScreenLoader.stopLoading();
+        return;
+      }
+
+      /// Validate the form 
+      if(!loginFormKey.currentState!.validate()){
         AbFullScreenLoader.stopLoading();
         return;
       }
@@ -65,7 +72,7 @@ class LoginController extends GetxController {
         return;
       }
       await AuthenticationRepository.instance.loginWithEmailAndPassword(email.text.trim(), password.text.trim());
-      print('Successfully loggedin!');
+      print('Logged in successfully!');
     } catch (e) {
       throw 'Nothing went wrong, Please try again!';
     }
@@ -101,21 +108,32 @@ class LoginController extends GetxController {
       await AuthenticationRepository.instance.loginWithEmailAndPassword(email.text.trim(), password.text.trim());
 
       /// Fetch user deatails
-      final user = UserController.instance.fetUserDetails();
+      final user = await userController.fetchUserDetails();
 
       AbFullScreenLoader.stopLoading();
 
       /// Check if the user is not admin to logout and return
-      if(user.role != AppRole.admin){
-        await AuthenticationRepository.instance.logout();
-        AbLoaders.errorSnackBar(title: 'Not Authorized!', message: 'You are not authorized to acces this data!');
+      // if (user == null) {
+      //   AbLoaders.errorSnackBar(
+      //     title: 'Error',
+      //     message: 'Failed to fetch user details!',
+      //   );
+      //   AbFullScreenLoader.stopLoading();
+      //   return;
+      // }
+      if(user.role == AppRole.admin){
+        print(user.role);
+      await AuthenticationRepository.instance.logout();
+      AbLoaders.errorSnackBar(title: 'Not Authorized!', message: 'You are not authorized to acces this data!');
       }
       else {
+        print('Logged in successfully!');
         AuthenticationRepository.instance.screenRedirect();
       }
+      
     } catch (e) {
       AbFullScreenLoader.stopLoading();
-      throw 'Nothing went wrong, Please try again!';
+      throw 'Error: ${e.toString()}';
     }
   }
 }

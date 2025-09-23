@@ -3,21 +3,31 @@
 import '../../../common/data/repositories/user/user_repository.dart';
 import '../../../features/authentication/models/user_model.dart';
 import '../../../utils/loaders/loaders.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 
 class UserController extends GetxController{
   static  UserController get instance => Get.find();
-
-  final _db = FirebaseFirestore.instance;
+  
+  /// Variables
+  RxBool isLoading = false.obs;
+  Rx<UserModel> user = UserModel.empty().obs;
   final userRepository = Get.put(UserRepository());
 
-  Future<UserModel> fetUserDetails() async{
+  @override
+  void onInit(){
+    fetchUserDetails();
+    super.onInit();
+  }
+  Future<UserModel> fetchUserDetails() async{
     try {
-      final user = await userRepository.fetchUserDetails();
+      isLoading.value = true;
+      final user = await userRepository.fetchAdminDetails();
+      this.user.value = user;
+      isLoading.value = false;
       return user;
     }catch(e) {
-      throw AbLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
+      AbLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
+      return UserModel.empty();
     }
   }
 }

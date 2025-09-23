@@ -68,5 +68,23 @@ class AuthenticationRepository extends GetxController{
       throw 'Nothing went wrong, Please try again!';
     }
   }
+
+  /// Logout 
+  Future<void> logout() async{
+    try {
+      await _auth.signOut();
+      Get.offAllNamed(AbRoutes.login);
+    } on FirebaseAuthException catch (e){
+      throw AbFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw AbFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw AbFormatException();
+    } on PlatformException catch (e) {
+      throw AbPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Nothing went wrong, Please try again!';
+    }
+  }
 }
 

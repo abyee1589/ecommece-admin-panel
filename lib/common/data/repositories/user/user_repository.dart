@@ -11,7 +11,7 @@ class UserRepository extends GetxController{
   static UserRepository get instance => Get.find();
 
   final _db = FirebaseFirestore.instance;
-  final authUser = AuthenticationRepository.instance.authUser!;
+  final currentUser = AuthenticationRepository.instance.authUser;
 
   /// Create User
   Future<void> createUser(UserModel user) async{
@@ -26,14 +26,13 @@ class UserRepository extends GetxController{
     } on PlatformException catch (e) {
       throw AbPlatformException(e.code).message;
     } catch (e) {
-      throw 'Nothing went wrong, Please try again!';
+      throw 'something went wrong while creating user, Please try again!';
     }
   }
   /// Fetch User Details
-  Future<UserModel> fetchUserDetails() async{
+  Future<UserModel> fetchAdminDetails() async{
     try {
-      final userId = authUser.uid;
-      final snapshot = await _db.collection('Users').doc(userId).get();
+      final snapshot = await _db.collection('Users').doc(currentUser?.uid).get();
       return UserModel.fromSnapshot((snapshot));
     } on FirebaseAuthException catch (e){
       throw AbFirebaseAuthException(e.code).message;
@@ -44,7 +43,7 @@ class UserRepository extends GetxController{
     } on PlatformException catch (e) {
       throw AbPlatformException(e.code).message;
     } catch (e) {
-      throw 'Nothing went wrong, Please try again!';
+      throw 'Something went wrong while fetching admin details, please try again!';
     }
   }
 }

@@ -1,6 +1,4 @@
-import 'package:ab_ecommerce_admin_panel/common/data/repositories/authentication/authentication_repository.dart';
 import 'package:ab_ecommerce_admin_panel/features/authentication/controllers/login_controller.dart';
-import 'package:ab_ecommerce_admin_panel/features/authentication/screens/forget_password/responsive_screens/forget_password_desktop_tablet.dart';
 import 'package:ab_ecommerce_admin_panel/routes/app_routes.dart';
 import 'package:ab_ecommerce_admin_panel/routes/routes.dart';
 import 'package:ab_ecommerce_admin_panel/utils/constants/sizes.dart';
@@ -73,7 +71,7 @@ class AbLoginForm extends StatelessWidget {
             /// SignIn Button 
             SizedBox(
               width: double.infinity,
-              child: ElevatedButton(onPressed: () => controller.loginAdmin(), child: const Text('Sign In')),
+              child: ElevatedButton(onPressed: () => controller.emailAndPasswordSignIN(), child: const Text('Sign In')),
             )
           ],
         ),

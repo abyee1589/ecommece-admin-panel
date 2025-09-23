@@ -1,3 +1,4 @@
+import 'package:ab_ecommerce_admin_panel/bindings/general_binding.dart';
 import 'package:ab_ecommerce_admin_panel/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:ab_ecommerce_admin_panel/common/widgets/responsive/responsive_design.dart';
 import 'package:ab_ecommerce_admin_panel/common/widgets/responsive/screens/desktop_layout.dart';
@@ -21,6 +22,7 @@ class App extends StatelessWidget {
       themeMode: ThemeMode.light,
       theme: AbAppTheme.lightTheme,
       darkTheme: AbAppTheme.darkTheme,
+      initialBinding: GeneralBinding(),
       getPages: AppRoutes.pages,
       initialRoute: AbRoutes.dashboard,
       home: AbResponsiveWidget(desktop: const DesktopLayout(), tablet: TabletLayout(), mobile: MobileLayout()),

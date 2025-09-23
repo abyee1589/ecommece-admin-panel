@@ -5,15 +5,15 @@ import '../../../utils/constants/enums.dart';
 
 class UserModel {
   final String? id;
-  String firstName;
-  String lastName;
-  String username;
-  String email;
-  String phoneNumber;
-  AppRole role;
-  String profilePicture;
-  DateTime? createdAt;
-  DateTime? updatedAt;
+  final String firstName;
+  final String lastName;
+  final String username;
+  final String email;
+  final String phoneNumber;
+  final AppRole role;
+  final String profilePicture;
+  final DateTime? createdAt;
+  final DateTime? updatedAt;
 
   UserModel({
     this.id,
@@ -59,8 +59,8 @@ class UserModel {
       'username': username,
       'profilePicture': profilePicture,
       'role': role.name.toString(),
-      'createdAtt': createdAt,
-      'updatedAtt': updatedAt,
+      'createdAt': createdAt,
+      'updatedAt': updatedAt,
     };
   }
 
