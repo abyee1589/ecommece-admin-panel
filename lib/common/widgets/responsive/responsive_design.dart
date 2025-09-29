@@ -14,7 +14,7 @@ class AbResponsiveWidget extends StatelessWidget {
         if(constraints.maxWidth >= AbSizes.desktopScreenSize){
           return desktop;
         }
-        else if(constraints.maxWidth < AbSizes.desktopScreenSize && constraints.maxWidth >= AbSizes.tabletScreenSize){
+        else if(constraints.maxWidth >= AbSizes.tabletScreenSize){
           return tablet;
         }
         else {

@@ -19,9 +19,9 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: AbTexts.appName,
-      themeMode: ThemeMode.light,
-      theme: AbAppTheme.lightTheme,
-      darkTheme: AbAppTheme.darkTheme,
+      // themeMode: ThemeMode.system,
+      // theme: AbAppTheme.lightTheme,
+      // darkTheme: AbAppTheme.darkTheme,
       initialBinding: GeneralBinding(),
       getPages: AppRoutes.pages,
       initialRoute: AbRoutes.dashboard,

@@ -10,36 +10,52 @@ class AbRoundedContainer extends StatelessWidget {
     this.width,
     this.height,
     this.radius = AbSizes.borderRadiusLg,
+    this.showshadow = true,
     this.showBorder = false,
     this.padding,
     this.margin,
     this.backgroundColor = AbColors.white,
-    this.borderColor = AbColors.borderPrimary,
+    this.borderColor = AbColors.borderPrimary, 
+    this.onTap,
   });
 
   final double? width;
   final double? height;
   final double radius;
   final Widget? child;
+  final bool showshadow;
   final bool showBorder;
   final Color borderColor;
   final Color backgroundColor;
-  final EdgeInsetsGeometry? padding;
-  final EdgeInsetsGeometry? margin;
+  final EdgeInsets? padding;
+  final EdgeInsets? margin;
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: width,
-      height: height,
-      padding: padding,
-      margin: margin,
-      decoration: BoxDecoration(
-        color: backgroundColor,
-        borderRadius: BorderRadius.circular(radius),
-        border: showBorder ? Border.all(color: borderColor) : null,
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: width,
+        height: height,
+        padding: padding,
+        margin: margin,
+        decoration: BoxDecoration(
+          color: backgroundColor,
+          borderRadius: BorderRadius.circular(radius),
+          border: showBorder ? Border.all(color: borderColor) : null,
+          boxShadow: [
+            if(showshadow)
+              BoxShadow(
+                color: AbColors.grey.withOpacity(0.1),
+                spreadRadius: 5,
+                blurRadius: 8,
+                offset: const Offset(0, 3)
+              )
+          ]
+        ),
+        child: child,
       ),
-      child: child,
     );
   }
 }

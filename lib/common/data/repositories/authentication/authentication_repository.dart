@@ -27,7 +27,7 @@ class AuthenticationRepository extends GetxController{
 
   void screenRedirect() {
     final user = _auth.currentUser;
-    if(user != null) {
+    if(user == null) {
       Get.offAllNamed(AbRoutes.login);
     }
     else{

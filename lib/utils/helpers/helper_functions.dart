@@ -2,7 +2,29 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
+import '../constants/enums.dart';
+
 class AbHelperFunctions {
+  static DateTime getStartOfDate(DateTime date){
+    final int daysUntilMonday = date.weekday - 1;
+    final DateTime startOfWeek = date.subtract(Duration(days: daysUntilMonday));
+    return DateTime(startOfWeek.year, startOfWeek.month, startOfWeek.day,0,0,0,0,0);
+  }
+  
+  static Color? getOrderColorStatus(OrderStatus value) {
+    if (value == OrderStatus.pending) {
+      return Colors.blue;
+    } else if (value == OrderStatus.processing) {
+      return Colors.orange;
+    } else if (value == OrderStatus.shipped) {
+      return Colors.purple;
+    } else if (value == OrderStatus.delivered) {
+      return Colors.green;
+    } else {
+      return Colors.green;
+    }
+  }
+
   static Color? getColor(String value) {
     if (value == 'Green') {
       return Colors.green;
