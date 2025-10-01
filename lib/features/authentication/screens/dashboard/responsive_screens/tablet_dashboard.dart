@@ -1,7 +1,11 @@
 import 'package:ab_ecommerce_admin_panel/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../common/widgets/custom_shapes/containers/rounded_container.dart';
+import 'table/data_table.dart';
 import 'widgets/dashboard_card.dart';
+import 'widgets/order_status_graph.dart';
+import 'widgets/weekly_sales.dart';
 
 class TabletDashboardScreen extends StatelessWidget {
   const TabletDashboardScreen({super.key});
@@ -35,7 +39,28 @@ class TabletDashboardScreen extends StatelessWidget {
                   SizedBox(width: AbSizes.spaceBtwItems),
                   Expanded(child: AbDashboardCard(title: 'Visitors', stats: 25, subTitle: '25',)),
                 ],
-              )
+              ),
+              const SizedBox(height: AbSizes.spaceBtwSections),
+              /// Graphs
+              const AbWeeklySalesGraph(),
+              const SizedBox(height: AbSizes.spaceBtwSections),
+              
+              /// Orders
+              AbRoundedContainer(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Recent Orders', style: Theme.of(context).textTheme.headlineSmall),
+                    const SizedBox(height: AbSizes.spaceBtwSections),
+                    const SizedBox(
+                      height: 400,
+                      child: DashboardOrderTable()),
+                  ],
+                ),
+              ),
+              const SizedBox(height: AbSizes.spaceBtwSections),
+              /// Pie chart
+              const OrderStatusPieChart()
             ],
           ),
         ),

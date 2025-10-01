@@ -1,3 +1,5 @@
+import 'package:ab_ecommerce_admin_panel/features/media/screens/media.dart';
+
 import '../common/middlewares/routes_middleware.dart';
 import '../features/authentication/screens/forget_password/forget_password_screen.dart';
 import '../features/authentication/screens/login/login.dart';
@@ -13,16 +15,6 @@ class AppRoutes {
     GetPage(name: AbRoutes.forgetPassword, page: () => const ForgetPasswordScreen()),
     GetPage(name: AbRoutes.resetPassword, page: () => const ResetPasswordScreen()),
     GetPage(name: AbRoutes.dashboard, page: () => const DashboardScreen(), middlewares: [AbRouteMiddleware()]),
-    // GetPage(name: AbRoutes.productReviews, page: () => const ProductReviewsScreen()),
-    // GetPage(name: AbRoutes.order, page: () => const Orderscreen()),
-    // GetPage(name: AbRoutes.checkout, page: () => const CheckoutScreen()),
-    // GetPage(name: AbRoutes.cart, page: () => const CartScreen()),
-    // GetPage(name: AbRoutes.userProfile, page: () => const ProfileScreen()),
-    // GetPage(name: AbRoutes.userAddress, page: () => const UserAddressScreen()),
-    // GetPage(name: AbRoutes.signup, page: () => const SignupScreen()),
-    // GetPage(name: AbRoutes.verifyEmail, page: () => const VerifyEmailScreen()),
-    // GetPage(name: AbRoutes.signin, page: () => const LoginScreen()),
-    // GetPage(name: AbRoutes.forgetPassword, page: () => const ForgetPassword()),
-    // GetPage(name: AbRoutes.onBoarding, page: () => OnBoardingScreen()),
+    GetPage(name: AbRoutes.media, page: () => const MediaScreen(), middlewares: [AbRouteMiddleware()]),
   ];
 }

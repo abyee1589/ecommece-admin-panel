@@ -7,8 +7,8 @@ import '../../../../../../utils/constants/colors.dart';
 import '../../../../../../utils/constants/sizes.dart';
 import '../../../../controllers/dashboard/dashboard_controller..dart';
 
-class AbWeeklySales extends StatelessWidget {
-  const AbWeeklySales({super.key});
+class AbWeeklySalesGraph extends StatelessWidget {
+  const AbWeeklySalesGraph({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,11 +28,19 @@ class AbWeeklySales extends StatelessWidget {
                 borderData: FlBorderData(show: true, border: const Border(top: BorderSide.none, right: BorderSide.none)),
                 gridData: const FlGridData(
                   show: true,
-                  drawHorizontalLine: false,
+                  drawHorizontalLine: true,
                   drawVerticalLine: false,
                   horizontalInterval: 200
                 ),
-                barGroups: controller.weeklySales.asMap().entries.map((entry) => BarChartGroupData(x: entry.key, barRods: [BarChartRodData(toY: entry.value, color: AbColors.primary,borderRadius: BorderRadius.circular(AbSizes.sm))])).toList()
+                barGroups: controller.weeklySales.asMap().entries.map((entry) => BarChartGroupData(
+                  x: entry.key, 
+                  barRods: [BarChartRodData(
+                    toY: entry.value, 
+                    width: 30, 
+                    color: AbColors.primary,
+                    borderRadius: BorderRadius.circular(AbSizes.sm)
+                  )]
+                )).toList()
               )
             ),
           )

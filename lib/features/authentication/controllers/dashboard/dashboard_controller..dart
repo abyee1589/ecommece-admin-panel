@@ -10,6 +10,8 @@ class DashboardController extends GetxController{
 
   /// Variables
   final RxList<double> weeklySales = <double>[].obs;
+  final RxMap<OrderStatus, int> orderStatusData = <OrderStatus, int>{}.obs;
+  final RxMap<OrderStatus, double> totalAmount = <OrderStatus, double>{}.obs;
 
 
   static final List<OrderModel> orders = [
@@ -47,6 +49,7 @@ class DashboardController extends GetxController{
   @override
   void onInit(){
     _calculateWeeklySales();
+    _calculateOrderStatusData();
     super.onInit();
   }
 
@@ -65,5 +68,37 @@ class DashboardController extends GetxController{
       }
     }
     print('$weeklySales weaekly sales');
+  }
+
+  void _calculateOrderStatusData() {
+    orderStatusData.clear();
+    
+    totalAmount
+    ..clear()
+    ..addAll({for (var status in OrderStatus.values) status: 0.0});
+
+    for(var order in orders){
+      /// count orders
+      final status = order.status;
+      orderStatusData[status] = (orderStatusData[status] ?? 0) + 1;
+
+      /// Calculate the total amount for each status
+      totalAmount[status] = (totalAmount[status] ?? 0) + order.totalAmount;
+    }
+  }
+
+  String getDisplayStatusName(OrderStatus status) {
+    switch (status) {
+      case OrderStatus.pending:
+        return 'Pending';
+      case OrderStatus.shipped:
+        return 'Shipped';
+      case OrderStatus.processing:
+        return 'Processing';
+      case OrderStatus.delivered:
+        return 'Delivered';
+      default:
+        return 'Unknown';
+    }
   }
 }

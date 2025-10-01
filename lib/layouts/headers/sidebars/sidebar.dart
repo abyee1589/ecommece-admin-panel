@@ -31,8 +31,8 @@ class AbSideBar extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text('MENU', style: Theme.of(context).textTheme.bodySmall!.apply(letterSpacingDelta: 1.2)),
-                    const AbMenuItem(icon: Iconsax.status, itemName: 'Dashboard', route: AbRoutes.login),
-                    const AbMenuItem(icon: Iconsax.image, itemName: 'Media', route: AbRoutes.forgetPassword),
+                    const AbMenuItem(icon: Iconsax.status, itemName: 'Dashboard', route: AbRoutes.dashboard),
+                    const AbMenuItem(icon: Iconsax.image, itemName: 'Media', route: AbRoutes.media),
                   ],
                 ),
               )

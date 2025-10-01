@@ -11,7 +11,7 @@ class AbHelperFunctions {
     return DateTime(startOfWeek.year, startOfWeek.month, startOfWeek.day,0,0,0,0,0);
   }
   
-  static Color? getOrderColorStatus(OrderStatus value) {
+  static Color getOrderColorStatus(OrderStatus value) {
     if (value == OrderStatus.pending) {
       return Colors.blue;
     } else if (value == OrderStatus.processing) {

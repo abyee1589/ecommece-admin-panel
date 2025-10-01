@@ -7,7 +7,7 @@ class SidebarController extends GetxController{
   static SidebarController get instance => Get.find();
 
   ///Variables
-  final RxString activeItem = AbRoutes.login.obs;
+  final RxString activeItem = AbRoutes.dashboard.obs;
   final RxString hoverItem = ''.obs;
 
   void changeActiveItem(String route) => activeItem.value = route;

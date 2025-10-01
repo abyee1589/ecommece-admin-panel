@@ -7,6 +7,6 @@ class GeneralBinding extends Bindings {
   @override
   void dependencies() {
     Get.lazyPut(() => NetworkManager());
-    Get.lazyPut(() => UserController());
+    Get.put(UserController());
   }
 }

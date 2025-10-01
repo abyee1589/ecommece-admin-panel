@@ -12,6 +12,8 @@ import 'package:ab_ecommerce_admin_panel/utils/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'utils/device/scroll_behavior.dart';
+
 class App extends StatelessWidget {
   const App({super.key});
 
@@ -22,6 +24,7 @@ class App extends StatelessWidget {
       // themeMode: ThemeMode.system,
       // theme: AbAppTheme.lightTheme,
       // darkTheme: AbAppTheme.darkTheme,
+      scrollBehavior: MyScrollBehavior(),
       initialBinding: GeneralBinding(),
       getPages: AppRoutes.pages,
       initialRoute: AbRoutes.dashboard,

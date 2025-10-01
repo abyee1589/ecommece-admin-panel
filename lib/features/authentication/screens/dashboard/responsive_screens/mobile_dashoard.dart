@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../common/widgets/custom_shapes/containers/rounded_container.dart';
 import '../../../../../utils/constants/sizes.dart';
+import 'table/data_table.dart';
 import 'widgets/dashboard_card.dart';
+import 'widgets/order_status_graph.dart';
+import 'widgets/weekly_sales.dart';
 
 class MobileDashboardScreen extends StatelessWidget {
   const MobileDashboardScreen({super.key});
@@ -27,7 +31,37 @@ class MobileDashboardScreen extends StatelessWidget {
               const SizedBox(height: AbSizes.spaceBtwItems),
               const AbDashboardCard(title: 'Totla Order', stats: 25, subTitle: '35',),
               const SizedBox(height: AbSizes.spaceBtwItems),
-              const AbDashboardCard(title: 'Visitors', stats: 25, subTitle: '25',)
+              const AbDashboardCard(title: 'Visitors', stats: 25, subTitle: '25',),
+
+              const SizedBox(height: AbSizes.spaceBtwItems),
+              const Row(
+                children: [
+                  Expanded(child: AbDashboardCard(title: 'Totla Order', stats: 25, subTitle: '35',)),
+                  SizedBox(width: AbSizes.spaceBtwItems),
+                  Expanded(child: AbDashboardCard(title: 'Visitors', stats: 25, subTitle: '25',)),
+                ],
+              ),
+              const SizedBox(height: AbSizes.spaceBtwSections),
+              /// Graphs
+              const AbWeeklySalesGraph(),
+              const SizedBox(height: AbSizes.spaceBtwSections),
+              
+              /// Orders
+              AbRoundedContainer(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Recent Orders', style: Theme.of(context).textTheme.headlineSmall),
+                    const SizedBox(height: AbSizes.spaceBtwSections),
+                    const SizedBox(
+                      height: 400,
+                      child: DashboardOrderTable()),
+                  ],
+                ),
+              ),
+              const SizedBox(height: AbSizes.spaceBtwSections),
+              /// Pie chart
+              const OrderStatusPieChart()
             ],
           ),
         ),

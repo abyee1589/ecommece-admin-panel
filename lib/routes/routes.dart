@@ -3,10 +3,11 @@ class AbRoutes {
   static const forgetPassword = '/forget-password';
   static const resetPassword = '/reset-password';
   static const dashboard= '/dashboard';
+  static const media= '/media';
 
 
   static List sidebarMenuItems = [
-    login,
-
+    dashboard,
+    media
   ];
 }
