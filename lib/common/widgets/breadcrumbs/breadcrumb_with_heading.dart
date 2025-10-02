@@ -22,33 +22,36 @@ class AbBreadcrumbsWithHeading extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         /// Breadcrumb tail
-        InkWell(
-          onTap: () => Get.offAllNamed(AbRoutes.dashboard),
-          child: Padding(
-            padding: const EdgeInsets.all(AbSizes.xs),
-            child: Text('Dashboard', style: Theme.of(context).textTheme.bodySmall!.apply(fontWeightDelta: -1)),
-          ),
-        ),
-        const SizedBox(height: AbSizes.sm),
-        for(var i = 0; i < breadcrumbItems.length; i++)
-          Row(
-            children: [
-              const Text('/'),
-              InkWell(
-                onTap: i == breadcrumbItems.length - 1 
-                  ? null 
-                  : () => Get.toNamed(breadcrumbItems[i]),
-                child: Padding(
-                  padding: const EdgeInsets.all(AbSizes.xs),
-                  child: Text(i == breadcrumbItems.length - 1 
-                    ? breadcrumbItems[i].capitalize.toString() 
+        Row(
+          children: [
+            InkWell(
+              onTap: () => Get.offAllNamed(AbRoutes.dashboard),
+              child: Padding(
+                padding: const EdgeInsets.all(AbSizes.xs),
+                child: Text('Dashboard', style: Theme.of(context).textTheme.bodySmall!.apply(fontWeightDelta: -1)),
+              ),
+            ),
+            for(var i = 0; i < breadcrumbItems.length; i++)
+              Row(
+                children: [
+                  const Text('/'),
+                  InkWell(
+                    onTap: i == breadcrumbItems.length - 1 
+                      ? null 
+                      : () => Get.toNamed(breadcrumbItems[i]),
+                    child: Padding(
+                      padding: const EdgeInsets.all(AbSizes.xs),
+                      child: Text(i == breadcrumbItems.length - 1 
+                    ? breadcrumbItems[i].capitalize.toString()
                     : capitalize(breadcrumbItems[i].substring(1)), style: Theme.of(context).textTheme.bodySmall!.apply(fontWeightDelta: -1)
                   ),
-                ),
+                    ),
+                  ),
+                ],
               ),
-            ],
-          ),
-          const SizedBox(height: AbSizes.sm),
+          ]
+        ),
+        const SizedBox(height: AbSizes.sm),
           Row(
             children: [
               if(returnToPreviousScreen) IconButton(onPressed: () => Get.back(), icon: const Icon(Iconsax.arrow_left)),
@@ -64,3 +67,4 @@ class AbBreadcrumbsWithHeading extends StatelessWidget {
     return s.isEmpty ? '' : s[0].toUpperCase() + s.substring(1);
   }
 }
+

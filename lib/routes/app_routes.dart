@@ -1,4 +1,4 @@
-import 'package:ab_ecommerce_admin_panel/features/media/screens/media.dart';
+import 'package:ab_ecommerce_admin_panel/features/media/screens/media/media.dart';
 
 import '../common/middlewares/routes_middleware.dart';
 import '../features/authentication/screens/forget_password/forget_password_screen.dart';

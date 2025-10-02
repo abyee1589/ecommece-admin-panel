@@ -35,6 +35,7 @@ class AbImages {
   static const String furnitureIcon = 'images/icons/categpries/sammyline_delivery.gif';
   static const String jewlleryIcon = 'images/icons/categpries/sammyline_delivery.gif';
   static const String electronicsIcon = 'images/icons/categpries/sammyline_delivery.gif';
+  static const String defaultImageIcon = 'icons/default-image-icon.png';
 
   /// Banners
   static const String promoBanner1 = 'images/banners/promo-banner-1.jpg';
