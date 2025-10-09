@@ -55,4 +55,12 @@ class AbTexts {
   static const String passwordEmailSentsubTitle = 'Password Reset Email Sent';
   static const String homeAppbarTitle = 'Good day for shopping!';
   static const String homeAppbarSubTitle = 'Abdi B.';
+
+
+  // Storage Paths
+  static const String bannersStoragePath = '/Banners';
+  static const String brandsStoragePath = '/Brands';
+  static const String categoriesStoragePath = '/Categories';
+  static const String productsStoragePath = '/Products';
+  static const String usersStoragePath = '/Users';
 }

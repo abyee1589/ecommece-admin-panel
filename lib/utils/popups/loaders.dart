@@ -11,7 +11,9 @@ class AbLoaders {
   static customToast({required message}) {
     ScaffoldMessenger.of(Get.context!).showSnackBar(
       SnackBar(
+        width: 500,
         elevation: 0,
+        behavior: SnackBarBehavior.floating,
         duration: const Duration(seconds: 3),
         backgroundColor: Colors.transparent,
         content: Container(

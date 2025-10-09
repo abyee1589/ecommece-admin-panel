@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:ab_ecommerce_admin_panel/utils/loaders/loaders.dart';
+import 'package:ab_ecommerce_admin_panel/utils/popups/loaders.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/services.dart';
 

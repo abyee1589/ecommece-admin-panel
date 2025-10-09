@@ -13,15 +13,28 @@ class MediaFolderDropdown extends StatelessWidget {
     return Obx(
       () => SizedBox(
         width: 140,
-        child: DropdownButtonFormField(
-          isExpanded: false,
-          initialValue: controller.selectedPath.value,
-          items: MediaCategory.values.map((category) => DropdownMenuItem(
-            value: category,
-            child: Text(category.name.capitalize.toString()))).toList(),
-          onChanged: onchanged,
+        child: DropdownButtonFormField<MediaCategory>(
+        isExpanded: false,
+        initialValue: controller.selectedPath.value,
+        decoration: InputDecoration(
+          contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8),
+            borderSide: const BorderSide(color: Colors.grey, width: 0.5),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8),
+            borderSide: BorderSide(color: Theme.of(context).primaryColor, width: 1),
+          ),
         ),
-      ),
-    );
+        items: MediaCategory.values
+            .map((category) => DropdownMenuItem(
+                  value: category,
+                  child: Text(category.name.capitalize.toString()),
+                ))
+            .toList(),
+        onChanged: onchanged,
+      )
+    ));
   }
 }

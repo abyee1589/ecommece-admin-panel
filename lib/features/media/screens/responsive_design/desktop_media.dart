@@ -7,8 +7,6 @@ import 'package:ab_ecommerce_admin_panel/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-
-import '../../../../utils/device/device_utility.dart';
 import '../media/widgets/media_uploader.dart';
 
 class MediaDesktopScreen extends StatelessWidget {
@@ -21,9 +19,7 @@ class MediaDesktopScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(AbSizes.defaultSpace),
-          child: Obx(
-            () => controller.showImagesUploaderSection.value 
-              ? Column(
+          child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
@@ -45,17 +41,18 @@ class MediaDesktopScreen extends StatelessWidget {
                         )
                       ],
                     ),
+                    const SizedBox(height: AbSizes.spaceBtwSections),
+
+                    /// Media
+                    const MediaUploader(),
+                    const SizedBox(height: AbSizes.spaceBtwSections),
+
                     /// Upload Area
                     const MediaContent(),
-                
-                    /// Media
-                    const MediaUploader()
                   ],
-                )
-              : const SizedBox.shrink()
+                ),
           ),
         ),
-      ),
     );
   }
 }

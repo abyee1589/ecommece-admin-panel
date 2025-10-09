@@ -3,14 +3,14 @@
 import 'package:ab_ecommerce_admin_panel/common/data/repositories/authentication/authentication_repository.dart';
 import 'package:ab_ecommerce_admin_panel/features/authentication/controllers/user_controller.dart';
 import 'package:ab_ecommerce_admin_panel/utils/constants/image_strings.dart';
-import 'package:ab_ecommerce_admin_panel/utils/loaders/full_screen_loader.dart';
+import 'package:ab_ecommerce_admin_panel/utils/popups/full_screen_loader.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 import '../../../utils/constants/enums.dart';
 import '../../../utils/helpers/network_manager.dart';
-import '../../../utils/loaders/loaders.dart';
+import '../../../utils/popups/loaders.dart';
 
 class LoginController extends GetxController {
   static LoginController get instance => Get.find();

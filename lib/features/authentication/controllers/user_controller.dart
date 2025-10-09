@@ -2,7 +2,7 @@
 
 import '../../../common/data/repositories/user/user_repository.dart';
 import '../../../features/authentication/models/user_model.dart';
-import '../../../utils/loaders/loaders.dart';
+import '../../../utils/popups/loaders.dart';
 import 'package:get/get.dart';
 
 class UserController extends GetxController{
