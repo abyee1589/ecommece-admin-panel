@@ -20,8 +20,12 @@ class MediaController extends GetxController {
 
   late DropzoneViewController dropzoneController;
   final RxBool showImagesUploaderSection = false.obs;
+  final RxBool loading = false.obs;
   final Rx<MediaCategory> selectedPath = MediaCategory.folders.obs;
   final RxList<ImageModel> selectedImagesToUpload = <ImageModel>[].obs;
+
+  final int initialLoadCount = 20;
+  final int loadMoreCount = 25;
 
   final RxList<ImageModel> allBannerImages = <ImageModel>[].obs;
   final RxList<ImageModel> allProductImages = <ImageModel>[].obs;
@@ -30,6 +34,62 @@ class MediaController extends GetxController {
   final RxList<ImageModel> allUserImages = <ImageModel>[].obs;
 
   final MediaRepository mediaRepository = MediaRepository();
+
+  Future<void> getMediaImages() async{
+    try{
+      loading.value = true;
+      RxList<ImageModel> targetList = <ImageModel>[].obs;
+      if(selectedPath.value == MediaCategory.banners){
+        targetList = allBannerImages;
+      }
+      else if(selectedPath.value == MediaCategory.brands){
+        targetList = allBrandImages;
+      }
+      if(selectedPath.value == MediaCategory.categories){
+        targetList = allCategoryImages;
+      }
+      else if(selectedPath.value == MediaCategory.products){
+        targetList = allProductImages;
+      }
+      else if(selectedPath.value == MediaCategory.users){
+        targetList = allUserImages;
+      }
+      final images = await mediaRepository.fetchImagesFromDatabase(selectedPath.value, initialLoadCount);
+      targetList.assignAll(images);
+      loading.value = false;
+    } catch(e){
+      loading.value = false;
+      AbLoaders.errorSnackBar(title: 'Oh Snap!', message: 'Something went wrong while loading images, please try again later!: ${e.toString()}');
+    }
+  }
+  void loadMoreMedaiImages() async{
+    try{
+      loading.value = true;
+      RxList<ImageModel> targetList = <ImageModel>[].obs;
+      if(selectedPath.value == MediaCategory.banners){
+        targetList = allBannerImages;
+      }
+      else if(selectedPath.value == MediaCategory.brands){
+        targetList = allBrandImages;
+      }
+      if(selectedPath.value == MediaCategory.categories){
+        targetList = allCategoryImages;
+      }
+      else if(selectedPath.value == MediaCategory.products){
+        targetList = allProductImages;
+      }
+      else if(selectedPath.value == MediaCategory.users){
+        targetList = allUserImages;
+      }
+      final images = await mediaRepository.loadMoreImagesFromDatabase(selectedPath.value, initialLoadCount, targetList.last.createdAt ?? DateTime.now());
+      targetList.addAll(images);
+      loading.value = false;
+    } catch(e){
+      loading.value = false;
+      AbLoaders.errorSnackBar(title: 'Oh Snap!', message: 'Something went wrong while loading more images, please try again later!');
+    }
+  }
+
 
   /// 🔹 Select local images — works on Web, Mobile, and Desktop
   Future<void> selectedLocalImages() async {
