@@ -1,10 +1,13 @@
 import 'dart:io';
 import 'package:ab_ecommerce_admin_panel/common/data/repositories/media_repository/media_repository.dart';
 import 'package:ab_ecommerce_admin_panel/features/media/models/image_model.dart';
+import 'package:ab_ecommerce_admin_panel/features/media/screens/media/widgets/media_content.dart';
+import 'package:ab_ecommerce_admin_panel/features/media/screens/media/widgets/media_uploader.dart';
 import 'package:ab_ecommerce_admin_panel/utils/constants/enums.dart';
 import 'package:ab_ecommerce_admin_panel/utils/constants/image_strings.dart';
 import 'package:ab_ecommerce_admin_panel/utils/constants/sizes.dart';
 import 'package:ab_ecommerce_admin_panel/utils/constants/text_strings.dart';
+import 'package:ab_ecommerce_admin_panel/utils/loaders/circular_loader.dart';
 import 'package:ab_ecommerce_admin_panel/utils/popups/full_screen_loader.dart';
 import 'package:ab_ecommerce_admin_panel/utils/popups/loaders.dart';
 import 'package:ab_ecommerce_admin_panel/utils/popups/dialogs.dart';
@@ -13,6 +16,8 @@ import 'package:flutter_dropzone/flutter_dropzone.dart';
 import 'package:get/get.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
+
+import '../../../utils/constants/colors.dart';
 
 
 class MediaController extends GetxController {
@@ -24,7 +29,7 @@ class MediaController extends GetxController {
   final Rx<MediaCategory> selectedPath = MediaCategory.folders.obs;
   final RxList<ImageModel> selectedImagesToUpload = <ImageModel>[].obs;
 
-  final int initialLoadCount = 20;
+  final int initialLoadCount = 10;
   final int loadMoreCount = 25;
 
   final RxList<ImageModel> allBannerImages = <ImageModel>[].obs;
@@ -59,7 +64,7 @@ class MediaController extends GetxController {
       loading.value = false;
     } catch(e){
       loading.value = false;
-      AbLoaders.errorSnackBar(title: 'Oh Snap!', message: 'Something went wrong while loading images, please try again later!: ${e.toString()}');
+      AbLoaders.errorSnackBar(title: 'Oh Snap!', message: 'Something went wrong while loading images, please try again later!');
     }
   }
   void loadMoreMedaiImages() async{
@@ -267,5 +272,88 @@ class MediaController extends GetxController {
       default:
         return 'Others';
     }
+  }
+
+  void removeCloudImageConfirmation(ImageModel image) {
+    AbDialog.defaultDialog(
+      context: Get.context!,
+      content: 'Are you sure to delete this image ?',
+      onConfirm: () {
+        Get.back();
+        removeCloudImage(image);
+      }
+    );
+  }
+
+  /// 🔹 Get Firestore storage path by selected folder
+  void removeCloudImage(ImageModel image) async{
+    try {
+      Get.back();
+      Get.defaultDialog(
+        title: '',
+        barrierDismissible: false,
+        backgroundColor: Colors.transparent,
+        content: const PopScope(canPop: false, child: SizedBox(width: 150, height: 150, child: AbCircularLoader()))
+      );
+      await mediaRepository.removeFileFromDatabase(image);
+      RxList<ImageModel> targetList;
+
+      switch (selectedPath.value) {
+        case MediaCategory.banners:
+          targetList = allBannerImages;
+          break;
+        case MediaCategory.brands:
+          targetList = allBrandImages;
+          break;
+        case MediaCategory.categories:
+          targetList = allCategoryImages;
+          break;
+        case MediaCategory.products:
+          targetList = allProductImages;
+          break;
+        case MediaCategory.users:
+          targetList = allUserImages;
+          break;
+        default:
+          return;
+      }
+      targetList.remove(image);
+      update();
+      AbFullScreenLoader.stopLoading();
+      AbLoaders.successSnackBar(title: 'Image Deleted', message: 'The image is successfully deleted from Firestore!');
+    }catch(e){
+      AbLoaders.errorSnackBar(
+        title: 'Oh Snap!',
+        message: e.toString(),
+      );
+    }
+  }
+
+  Future<List<ImageModel>?> selectImagesFromMedia({List<String>? selectedUrls, bool allowSelcetion = true, bool allowMultipleSelection = false}) async {
+    showImagesUploaderSection.value = true;
+
+    final List<ImageModel>? selectedImages = await Get.bottomSheet<List<ImageModel>>(
+      isScrollControlled: true,
+      backgroundColor: AbColors.primaryBackground,
+       FractionallySizedBox(
+        heightFactor: 1,
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsetsGeometry.all(AbSizes.defaultSpace),
+            child: Column(
+              children: [
+                const MediaUploader(),
+                MediaContent(
+                  allowSelection: allowSelcetion,
+                  alreadySelectedUrls: selectedUrls ?? [],
+                  allowMultipleSelection: allowMultipleSelection,
+                )
+              ],
+            ),
+          ),
+        ),
+      )
+    );
+    return selectedImages;
   }
 }

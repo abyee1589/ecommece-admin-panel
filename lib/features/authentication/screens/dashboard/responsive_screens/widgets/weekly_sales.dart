@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import '../../../../../../common/widgets/custom_shapes/containers/rounded_container.dart';
 import '../../../../../../utils/constants/colors.dart';
 import '../../../../../../utils/constants/sizes.dart';
-import '../../../../controllers/dashboard/dashboard_controller..dart';
+import '../../../../../shop/controllers/dashboard/dashboard_controller..dart';
 
 class AbWeeklySalesGraph extends StatelessWidget {
   const AbWeeklySalesGraph({super.key});

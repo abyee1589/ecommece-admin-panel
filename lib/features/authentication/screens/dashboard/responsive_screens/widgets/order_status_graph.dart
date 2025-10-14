@@ -5,7 +5,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import '../../../../../../common/widgets/custom_shapes/containers/rounded_container.dart';
 import '../../../../../../utils/constants/sizes.dart';
-import '../../../../controllers/dashboard/dashboard_controller..dart';
+import '../../../../../shop/controllers/dashboard/dashboard_controller..dart';
 
 class OrderStatusPieChart extends StatelessWidget {
   const OrderStatusPieChart({super.key});

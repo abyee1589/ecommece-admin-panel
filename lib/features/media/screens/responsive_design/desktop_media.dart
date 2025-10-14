@@ -48,7 +48,7 @@ class MediaDesktopScreen extends StatelessWidget {
                     const SizedBox(height: AbSizes.spaceBtwSections),
 
                     /// Upload Area
-                    const MediaContent(),
+                    MediaContent(allowSelection: false, allowMultipleSelection: false),
                   ],
                 ),
           ),

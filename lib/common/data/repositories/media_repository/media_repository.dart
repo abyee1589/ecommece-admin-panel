@@ -133,4 +133,18 @@ class MediaRepository {
       throw e.toString();
     }
   }
+
+  Future<void> removeFileFromDatabase(ImageModel image) async {
+    try {
+      await firestore.collection('images').doc(image.id).delete();
+    } on FirebaseException catch (e) {
+      throw e.message!;
+    } on io.SocketException catch (e) {
+      throw e.message;
+    } on PlatformException catch (e) {
+      throw e.message!;
+    } catch (e) {
+      throw e.toString();
+    }
+  }
 }

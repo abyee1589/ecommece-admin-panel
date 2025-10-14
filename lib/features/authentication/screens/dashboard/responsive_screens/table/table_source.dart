@@ -1,6 +1,6 @@
 
 import 'package:ab_ecommerce_admin_panel/common/widgets/custom_shapes/containers/rounded_container.dart';
-import 'package:ab_ecommerce_admin_panel/features/authentication/controllers/dashboard/dashboard_controller..dart';
+import 'package:ab_ecommerce_admin_panel/features/shop/controllers/dashboard/dashboard_controller..dart';
 import 'package:ab_ecommerce_admin_panel/utils/constants/colors.dart';
 import 'package:ab_ecommerce_admin_panel/utils/constants/sizes.dart';
 import 'package:ab_ecommerce_admin_panel/utils/helpers/helper_functions.dart';

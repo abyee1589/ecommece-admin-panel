@@ -1,8 +1,10 @@
 import 'package:ab_ecommerce_admin_panel/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:ab_ecommerce_admin_panel/features/authentication/screens/dashboard/responsive_screens/table/data_table.dart';
 import 'package:ab_ecommerce_admin_panel/features/authentication/screens/dashboard/responsive_screens/widgets/weekly_sales.dart';
+import 'package:ab_ecommerce_admin_panel/features/shop/controllers/products/product_images_controller.dart';
 import 'package:ab_ecommerce_admin_panel/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'widgets/dashboard_card.dart';
 import 'widgets/order_status_graph.dart';
@@ -12,6 +14,7 @@ class DesktopDashboardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(ProductImagesController());
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
@@ -22,6 +25,8 @@ class DesktopDashboardScreen extends StatelessWidget {
           
               /// Heading
               Text('Dahsboard', style: Theme.of(context).textTheme.headlineLarge),
+              ElevatedButton(child: const Text('Select Single Image'), onPressed: () => controller.selectThumbnailImage()),
+              ElevatedButton(child: const Text('Select Multiple Images'), onPressed: () => controller.selectMultipleProductImages()),
               const SizedBox(height: AbSizes.spaceBtwSections),
           
               /// Cards
