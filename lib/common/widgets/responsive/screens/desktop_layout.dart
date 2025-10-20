@@ -1,5 +1,5 @@
-import 'package:ab_ecommerce_admin_panel/layouts/headers/header.dart';
-import 'package:ab_ecommerce_admin_panel/layouts/headers/sidebars/sidebar.dart';
+import 'package:ab_ecommerce_admin_panel/common/widgets/layouts/headers/header.dart';
+import 'package:ab_ecommerce_admin_panel/common/widgets/layouts/sidebars/sidebar.dart';
 import 'package:flutter/material.dart';
 
 class DesktopLayout extends StatelessWidget {

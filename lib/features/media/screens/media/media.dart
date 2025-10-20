@@ -1,4 +1,4 @@
-import 'package:ab_ecommerce_admin_panel/layouts/templates/site_layout.dart';
+import 'package:ab_ecommerce_admin_panel/common/widgets/layouts/templates/site_layout.dart';
 import 'package:flutter/material.dart';
 
 import '../responsive_design/desktop_media.dart';

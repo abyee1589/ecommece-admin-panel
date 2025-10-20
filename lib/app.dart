@@ -4,7 +4,7 @@ import 'package:ab_ecommerce_admin_panel/common/widgets/responsive/responsive_de
 import 'package:ab_ecommerce_admin_panel/common/widgets/responsive/screens/desktop_layout.dart';
 import 'package:ab_ecommerce_admin_panel/common/widgets/responsive/screens/mobile_layout.dart';
 import 'package:ab_ecommerce_admin_panel/common/widgets/responsive/screens/tablet_layout.dart';
-import 'package:ab_ecommerce_admin_panel/layouts/templates/site_layout.dart';
+import 'package:ab_ecommerce_admin_panel/common/widgets/layouts/templates/site_layout.dart';
 import 'package:ab_ecommerce_admin_panel/routes/app_routes.dart';
 import 'package:ab_ecommerce_admin_panel/routes/routes.dart';
 import 'package:ab_ecommerce_admin_panel/utils/constants/text_strings.dart';

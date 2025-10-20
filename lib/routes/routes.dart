@@ -5,9 +5,14 @@ class AbRoutes {
   static const dashboard= '/dashboard';
   static const media= '/media';
 
+  static const categories = '/categories';
+  static const createCategory = '/create-category';
+  static const editCategory = '/edit-category';
+
 
   static List sidebarMenuItems = [
     dashboard,
-    media
+    media,
+    categories
   ];
 }

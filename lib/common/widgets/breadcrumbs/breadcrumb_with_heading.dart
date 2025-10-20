@@ -1,4 +1,4 @@
-import 'package:ab_ecommerce_admin_panel/common/widgets/page_heading.dart';
+import 'package:ab_ecommerce_admin_panel/common/widgets/layouts/headers/widgets/page_heading.dart';
 import 'package:ab_ecommerce_admin_panel/routes/routes.dart';
 import 'package:ab_ecommerce_admin_panel/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';

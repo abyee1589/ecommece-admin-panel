@@ -1,4 +1,4 @@
-import 'package:ab_ecommerce_admin_panel/layouts/headers/sidebars/sidebar_controller.dart';
+import 'package:ab_ecommerce_admin_panel/common/widgets/layouts/sidebars/sidebar_controller.dart';
 import 'package:ab_ecommerce_admin_panel/utils/constants/colors.dart';
 import 'package:ab_ecommerce_admin_panel/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';

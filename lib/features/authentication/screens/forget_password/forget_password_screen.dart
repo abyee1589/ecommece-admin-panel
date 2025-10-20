@@ -1,6 +1,6 @@
 import 'package:ab_ecommerce_admin_panel/features/authentication/screens/forget_password/responsive_screens/forget_password_desktop_tablet.dart';
 import 'package:ab_ecommerce_admin_panel/features/authentication/screens/forget_password/responsive_screens/forget_password_mobile.dart';
-import 'package:ab_ecommerce_admin_panel/layouts/templates/site_layout.dart';
+import 'package:ab_ecommerce_admin_panel/common/widgets/layouts/templates/site_layout.dart';
 import 'package:flutter/material.dart';
 
 class ForgetPasswordScreen extends StatelessWidget {

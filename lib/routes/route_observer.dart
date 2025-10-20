@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:ab_ecommerce_admin_panel/layouts/headers/sidebars/sidebar_controller.dart';
+import 'package:ab_ecommerce_admin_panel/common/widgets/layouts/sidebars/sidebar_controller.dart';
 import 'package:ab_ecommerce_admin_panel/routes/routes.dart';
 import 'package:get/get.dart';
 

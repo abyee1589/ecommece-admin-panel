@@ -1,5 +1,5 @@
 import 'package:ab_ecommerce_admin_panel/common/widgets/images/ab_circular_image.dart';
-import 'package:ab_ecommerce_admin_panel/layouts/headers/sidebars/menu/menu_item.dart';
+import 'package:ab_ecommerce_admin_panel/common/widgets/layouts/sidebars/menu/menu_item.dart';
 import 'package:ab_ecommerce_admin_panel/routes/routes.dart';
 import 'package:ab_ecommerce_admin_panel/utils/constants/colors.dart';
 import 'package:ab_ecommerce_admin_panel/utils/constants/image_strings.dart';
@@ -33,6 +33,7 @@ class AbSideBar extends StatelessWidget {
                     Text('MENU', style: Theme.of(context).textTheme.bodySmall!.apply(letterSpacingDelta: 1.2)),
                     const AbMenuItem(icon: Iconsax.status, itemName: 'Dashboard', route: AbRoutes.dashboard),
                     const AbMenuItem(icon: Iconsax.image, itemName: 'Media', route: AbRoutes.media),
+                    const AbMenuItem(icon: Iconsax.category_2, itemName: 'Categories', route: AbRoutes.categories),
                   ],
                 ),
               )
