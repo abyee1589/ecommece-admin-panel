@@ -1,14 +1,14 @@
 import 'package:ab_ecommerce_admin_panel/common/widgets/custom_shapes/containers/rounded_container.dart';
-import 'package:ab_ecommerce_admin_panel/features/shop/screens/edit_category/resposive_screens/desktop_edit_category.dart';
+import 'package:ab_ecommerce_admin_panel/features/shop/screens/category/edit_category/resposive_screens/desktop_edit_category.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
-import '../../../../../utils/constants/colors.dart';
-import '../../../../../utils/constants/enums.dart';
-import '../../../../../utils/constants/image_strings.dart';
-import '../../../../../utils/constants/sizes.dart';
-import '../../../../../utils/validators/validation.dart';
-import '../../../models/category_model.dart';
+import '../../../../../../utils/constants/colors.dart';
+import '../../../../../../utils/constants/enums.dart';
+import '../../../../../../utils/constants/image_strings.dart';
+import '../../../../../../utils/constants/sizes.dart';
+import '../../../../../../utils/validators/validation.dart';
+import '../../../../models/category_model.dart';
 import '../../create_category/widgets/image_uploader.dart';
 
 class EditCategoryForm extends StatelessWidget {

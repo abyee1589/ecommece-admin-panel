@@ -1,16 +1,18 @@
 
 import 'package:ab_ecommerce_admin_panel/common/widgets/custom_shapes/containers/rounded_container.dart';
+import 'package:ab_ecommerce_admin_panel/features/shop/screens/brand/all_brands/widgets/table/data_table.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../../common/widgets/breadcrumbs/breadcrumb_with_heading.dart';
-import '../../../../../common/widgets/data_table/data_table.dart';
-import '../../../../../routes/routes.dart';
-import '../../../../../utils/constants/sizes.dart';
-import '../../../../../common/widgets/data_table/table_header.dart';
+import '../../../../../../common/widgets/breadcrumbs/breadcrumb_with_heading.dart';
+import '../../../../../../routes/routes.dart';
+import '../../../../../../utils/constants/sizes.dart';
+import '../../../../../../common/widgets/data_table/table_header.dart';
+import '../../../../models/brand_model.dart';
 
-class CategoriesTabletScreen extends StatelessWidget {
-  const CategoriesTabletScreen({super.key});
+class BrandsTabletScreen extends StatelessWidget {
+  const BrandsTabletScreen({super.key, required this.brand});
+  final BrandModel brand;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +23,7 @@ class CategoriesTabletScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const AbBreadcrumbsWithHeading(heading: 'Categories', breadcrumbItems: ['Categories']),
+              const AbBreadcrumbsWithHeading(heading: 'Brands', breadcrumbItems: ['Brands']),
               const SizedBox(height: AbSizes.spaceBtwSections),
 
               /// Table Body
@@ -30,11 +32,11 @@ class CategoriesTabletScreen extends StatelessWidget {
                     children: [
 
                       /// Table Header
-                      AbTableHeader(buttonText: 'Create New Category', onPressed: () => Get.toNamed(AbRoutes.createCategory),),
+                      AbTableHeader(buttonText: 'Create New Brand', onPressed: () => Get.toNamed(AbRoutes.createBrand),),
                       const SizedBox(height: AbSizes.spaceBtwItems),
 
                       /// Table
-                      const CategoryTable(),
+                      const BrandTable(),
                     ],
                   ),
                 

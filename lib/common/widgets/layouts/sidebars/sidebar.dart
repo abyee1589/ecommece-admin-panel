@@ -34,6 +34,7 @@ class AbSideBar extends StatelessWidget {
                     const AbMenuItem(icon: Iconsax.status, itemName: 'Dashboard', route: AbRoutes.dashboard),
                     const AbMenuItem(icon: Iconsax.image, itemName: 'Media', route: AbRoutes.media),
                     const AbMenuItem(icon: Iconsax.category_2, itemName: 'Categories', route: AbRoutes.categories),
+                    const AbMenuItem(icon: Iconsax.dcube, itemName: 'Brands', route: AbRoutes.brands),
                   ],
                 ),
               )

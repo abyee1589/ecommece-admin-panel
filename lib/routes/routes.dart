@@ -9,10 +9,15 @@ class AbRoutes {
   static const createCategory = '/create-category';
   static const editCategory = '/edit-category';
 
+  static const brands = '/brands';
+  static const createBrand = '/create-brand';
+  static const editBrand = '/edit-brand';
+
 
   static List sidebarMenuItems = [
     dashboard,
     media,
-    categories
+    categories,
+    brands
   ];
 }

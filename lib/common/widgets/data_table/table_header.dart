@@ -33,7 +33,18 @@ class AbTableHeader extends StatelessWidget {
           child: TextFormField(
             controller: searchController,
             onChanged: searchOnChanged,
-            decoration: const InputDecoration(hintText: 'Search here...', prefixIcon: Icon(Iconsax.search_normal))
+            decoration: InputDecoration(
+              hintText: 'Search here...',
+              prefixIcon: const Icon(Iconsax.search_normal),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(12), // rounded corners
+                borderSide: const BorderSide(color: Colors.grey), // border color
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(12),
+                borderSide: const BorderSide(width: 1.2),
+              ),
+            ),
           )
         )
       ],

@@ -19,7 +19,7 @@ class AbImageUploader extends StatelessWidget {
     this.height = 100, 
     required this.imageType, 
     this.circular = false, 
-    this.icon = Iconsax.edit2, 
+    this.icon = Iconsax.edit_2, 
     this.top, 
     this.bottom = 0, 
     this.left = 0, 

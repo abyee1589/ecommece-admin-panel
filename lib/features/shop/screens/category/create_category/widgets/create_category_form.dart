@@ -28,11 +28,31 @@ class CreateCategoryForm extends StatelessWidget {
             /// Name Text field
             TextFormField(
               validator: (value) => AbValidator.validateEmptyText('Name', value),
-              decoration: const InputDecoration(labelText: 'Category Name', prefixIcon: Icon(Iconsax.category)),
+              decoration: InputDecoration(
+                labelText: 'Category Name', prefixIcon: const Icon(Iconsax.category),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12), // rounded corners
+                  borderSide:  const BorderSide(color: Colors.grey), // border color
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  borderSide: const BorderSide(width: 1.2),
+                ),
+              ),
             ),
             const SizedBox(height: AbSizes.inputFieldRadius),
             DropdownButtonFormField(
-              decoration: const InputDecoration(hintText: 'Parent Category', labelText: 'Parent Categor', prefixIcon: Icon(Iconsax.bezier)),
+              decoration: InputDecoration(
+                hintText: 'Parent Category', labelText: 'Parent Category', prefixIcon: const Icon(Iconsax.bezier),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12), // rounded corners
+                  borderSide: const BorderSide(color: Colors.grey), // border color
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  borderSide: const BorderSide(width: 1.2),
+                ),
+              ),
               onChanged: (newValue){},
               items: const [
                 DropdownMenuItem(
@@ -51,15 +71,27 @@ class CreateCategoryForm extends StatelessWidget {
               height: 80,
               image: AbImages.user,
               imageType: ImageType.asset,
-              icon: Iconsax.edit,
               onIconButtonPressed:  (){}
             ),
             const SizedBox(height: AbSizes.spaceBtwInputFields),
-            CheckboxMenuButton(
+            Theme(
+              data: Theme.of(context).copyWith(
+                checkboxTheme: CheckboxThemeData(
+                  fillColor: WidgetStateProperty.resolveWith((states){
+                    if(states.contains(WidgetState.selected)){
+                      return AbColors.primary;
+                    } 
+                    else {
+                      return Colors.grey.shade300;
+                    }
+                  })
+                )
+              ),
+              child: CheckboxMenuButton(
               value: true,
               onChanged: (value){},
               child: const Text('Featured'),
-            ),
+            )),
             const SizedBox(height: AbSizes.spaceBtwInputFields * 2),
             SizedBox(
               width: double.infinity,
