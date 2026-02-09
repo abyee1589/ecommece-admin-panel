@@ -1,4 +1,5 @@
 import 'package:ab_ecommerce_admin_panel/utils/constants/colors.dart';
+import 'package:ab_ecommerce_admin_panel/utils/constants/enums.dart';
 import 'package:ab_ecommerce_admin_panel/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
@@ -14,8 +15,10 @@ class AbRoundedContainer extends StatelessWidget {
     this.showBorder = false,
     this.padding,
     this.image,
+    this.imageType = ImageType.asset,
     this.margin,
     this.backgroundColor = AbColors.white,
+    this.borderRadius,
     this.borderColor = AbColors.borderPrimary, 
     this.onTap,
   });
@@ -27,9 +30,11 @@ class AbRoundedContainer extends StatelessWidget {
   final bool showshadow;
   final bool showBorder;
   final Color borderColor;
+  final double? borderRadius;
   final Color backgroundColor;
   final EdgeInsets? padding;
   final String? image;
+  final ImageType? imageType;
   final EdgeInsets? margin;
   final void Function()? onTap;
 

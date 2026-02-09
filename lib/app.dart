@@ -1,14 +1,11 @@
 import 'package:ab_ecommerce_admin_panel/bindings/general_binding.dart';
-import 'package:ab_ecommerce_admin_panel/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:ab_ecommerce_admin_panel/common/widgets/responsive/responsive_design.dart';
 import 'package:ab_ecommerce_admin_panel/common/widgets/responsive/screens/desktop_layout.dart';
 import 'package:ab_ecommerce_admin_panel/common/widgets/responsive/screens/mobile_layout.dart';
 import 'package:ab_ecommerce_admin_panel/common/widgets/responsive/screens/tablet_layout.dart';
-import 'package:ab_ecommerce_admin_panel/common/widgets/layouts/templates/site_layout.dart';
 import 'package:ab_ecommerce_admin_panel/routes/app_routes.dart';
 import 'package:ab_ecommerce_admin_panel/routes/routes.dart';
 import 'package:ab_ecommerce_admin_panel/utils/constants/text_strings.dart';
-import 'package:ab_ecommerce_admin_panel/utils/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

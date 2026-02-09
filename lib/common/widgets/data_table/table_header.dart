@@ -4,11 +4,19 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
 class AbTableHeader extends StatelessWidget {
-  const AbTableHeader({super.key, this.onPressed, this.searchOnChanged, required this.buttonText, this.searchController});
+  const AbTableHeader({
+    super.key, 
+    this.onPressed, 
+    this.searchOnChanged, 
+    this.buttonText = 'Add', 
+    this.searchController, 
+    this.showLeftWidget = true
+  });
   final void Function()? onPressed;
   final void Function(String)? searchOnChanged;
   final String buttonText;
   final TextEditingController? searchController;
+  final bool showLeftWidget;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +24,7 @@ class AbTableHeader extends StatelessWidget {
       children: [
         Expanded(
           flex: AbDeviceUtils.isDesktopScreen(context) ? 3 : 1,
-          child: Row(
+          child:  showLeftWidget ? Row(
             children: [
               SizedBox(
                 width: 200,
@@ -27,7 +35,9 @@ class AbTableHeader extends StatelessWidget {
                 ),
               ),
             ],
-          )),
+          ) : const SizedBox.shrink()
+        ),
+        
         Expanded(
           flex: AbDeviceUtils.isDesktopScreen(context) ? 2 : 1,
           child: TextFormField(

@@ -4,14 +4,14 @@ import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../table_source.dart';
+import 'table_source.dart';
 
 class BrandTable extends StatelessWidget {
   const BrandTable({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return AbPagingatedDataTable(
+    return AbPaginatedDataTable(
       minWidth: 700,
       dataRowHeight: 64,
       columns: [

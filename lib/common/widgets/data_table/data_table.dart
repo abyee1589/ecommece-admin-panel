@@ -9,7 +9,7 @@ class CategoryTable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AbPagingatedDataTable(
+    return AbPaginatedDataTable(
       minWidth: 700,
       columns: const [
         DataColumn2(label: Text('Category')),

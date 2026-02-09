@@ -9,7 +9,7 @@ class DashboardOrderTable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AbPagingatedDataTable(
+    return AbPaginatedDataTable(
       minWidth: 700,
       tableHeight: 500,
       dataRowHeight: AbSizes.xl * 1.2,

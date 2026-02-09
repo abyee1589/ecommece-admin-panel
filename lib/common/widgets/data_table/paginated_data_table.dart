@@ -5,8 +5,8 @@ import 'package:iconsax/iconsax.dart';
 
 import '../../../utils/constants/colors.dart';
 
-class AbPagingatedDataTable extends StatelessWidget {
-  const AbPagingatedDataTable({
+class AbPaginatedDataTable extends StatelessWidget {
+  const AbPaginatedDataTable({
     super.key, 
     this.sortAscending = true, 
     this.sortColumnIndex, 

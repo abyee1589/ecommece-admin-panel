@@ -74,10 +74,28 @@ class CreateBrandForm extends StatelessWidget {
             /// Image Uploader
             const AbImageUploader(imageType: ImageType.asset),
             const SizedBox(height: AbSizes.spaceBtwInputFields),
-            CheckboxMenuButton(
-              value: true,
-              onChanged: (value){}, 
-              child: const Text('Featured')
+            Theme(
+              data: Theme.of(context).copyWith(
+                checkboxTheme: CheckboxThemeData(
+                  fillColor: WidgetStateColor.resolveWith((states){
+                    if(states.contains(WidgetState.selected)){
+                      return AbColors.primary;
+                    } 
+                    else {
+                      return Colors.grey.shade300;
+                    }
+                  }),
+                  checkColor: WidgetStateProperty.all(Colors.white), // ✅ tick mark color
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(4), // optional rounded corners
+                  ),
+                )
+              ), 
+              child: CheckboxMenuButton(
+                value: true,
+                onChanged: (value){}, 
+                child: const Text('Featured')
+              ),
             ),
             const SizedBox(height: AbSizes.spaceBtwInputFields * 2),
             SizedBox(

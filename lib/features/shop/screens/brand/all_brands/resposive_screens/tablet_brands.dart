@@ -1,6 +1,6 @@
 
 import 'package:ab_ecommerce_admin_panel/common/widgets/custom_shapes/containers/rounded_container.dart';
-import 'package:ab_ecommerce_admin_panel/features/shop/screens/brand/all_brands/widgets/table/data_table.dart';
+import 'package:ab_ecommerce_admin_panel/features/shop/screens/brand/all_brands/table/data_table.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
